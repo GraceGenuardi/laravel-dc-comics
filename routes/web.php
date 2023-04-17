@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Inserimento rotte
+// Inserimento rotte 1: INDEX, SHOW, CREATE,SOTRE
 
 Route::get('/', [ComicController::class, 'index'])->name('comics.index');
 
@@ -23,7 +23,15 @@ Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.c
 
 Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
 
+
+//ROTTE PARTE 2: CREATE, STORE, EDIT, UPDATE
 Route::get('/products/create', 'ProductController@create')->name('products.create');
+
+Route::post('/products', 'ProductController@store')->name('products.store');
+
+Route::get('/products/{id}/edit', 'ProductController@edit')->name('products.edit');
+
+Route::put('/products/{id}', 'ProductController@update')->name('products.update');
 
 
 
