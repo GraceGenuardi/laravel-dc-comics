@@ -19,12 +19,32 @@
 
     <main class="bg-light">
 
-    <!-- Tabella vista show -->
-      <h2>{{ $comic->title }}</h2>
+        <!-- Tabella vista show -->
+        <h2>{{ $comic->title }}</h2>
 
-        <p><strong>Author:</strong> {{ $comic->author }}</p>
-        <p><strong>Issue Number:</strong> {{ $comic->issue_number }}</p>
-        <p><strong>Publication Date:</strong> {{ $comic->publication_date }}</p>
+         <p><strong>Author:</strong> {{ $comic->author }}</p>
+         <p><strong>Issue Number:</strong> {{ $comic->issue_number }}</p>
+         <p><strong>Publication Date:</strong> {{ $comic->publication_date }}</p>
+
+
+         <!-- PARTE DUE: aggiungere nell interfaccia tutti link necessari per raggiungere le varie pagine corrispondenti alle rotte -->
+         <form action="{{ route('store') }}" method="post">
+                @csrf 
+                <label for="name">Nome</label> 
+                <input type="text" name="name"> 
+                <label for="email">Email</label> 
+                <input type="email" name="email"> 
+                <input type="submit" value="Salva"> 
+         </form> 
+         
+         <form action="{{ route('update', $resource->id) }}" method="post"> 
+                @csrf @method('put') 
+                <label for="name">Nome</label> 
+                <input type="text" name="name" value="{{ $resource->name }}"> 
+                <label for="email">Email</label> 
+                <input type="email" name="email" value="{{ $resource->email }}"> 
+                <input type="submit" value="Aggiorna"> 
+        </form>    
 
     </main>
 
