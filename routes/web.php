@@ -13,21 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Inserimento rotte
-Route::get('/comics', 'ComicController@index')->name('comics.index');
 
-Route::get('/comics/create', 'ComicController@create')->name('comics.create');
+Route::get('/', [ComicController::class, 'index'])->name('comics.index');
 
-Route::post('/comics', 'ComicController@store')->name('comics.store');
+Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
 
-Route::get('/comics/{id}', 'ComicController@show')->name('comics.show');
+Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.create');
 
-Route::get('/comics/{id}/edit', 'ComicController@edit')->name('comics.edit');
+Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
 
-Route::put('/comics/{id}', 'ComicController@update')->name('comics.update');
+Route::get('/products/create', 'ProductController@create')->name('products.create');
 
-Route::delete('/comics/{id}', 'ComicController@destroy')->name('comics.destroy');
+
+
