@@ -47,7 +47,8 @@ class ComicController extends Controller
             $comic->update($data);
             return redirect()->route('comics.show', $comic->id);
             }
-
+             
+            // PARTE 3: AGGIUNGI DESTROY FUNCTION
             public function destroy($id)
             {
             $comic = Comic::find($id);
