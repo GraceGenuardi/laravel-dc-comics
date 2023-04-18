@@ -42,6 +42,13 @@
                             <td><a href="{{ route('comics.show', $comic->id) }}">Show</a></td>
                         </tr>
                     @endforeach
+
+                    <!-- INSERIMENTO BOTTONE DESTROY -->
+                    <form action="{{ route('comics.destroy.all') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input class="btn btn-danger btn-sm" type="submit" value="Elimina tutte">
+                    </form>
                 </tbody>
         </table>
     </main>
