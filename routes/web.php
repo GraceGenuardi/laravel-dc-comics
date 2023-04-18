@@ -36,3 +36,7 @@ Route::put('/products/{id}', 'ProductController@update')->name('products.update'
 
 
 
+// PARTE 3:ROTTA PER DESTROY
+Route::delete('/comics/{id}', [ComicController::class, 'destroy'])->name('comic.destroy');
+
+
