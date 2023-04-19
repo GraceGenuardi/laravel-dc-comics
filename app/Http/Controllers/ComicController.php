@@ -26,13 +26,15 @@ class ComicController extends Controller
             }
 
             public function store(Request $request)
-            {
-            $data = $request->all();
-            $newComic = new Comic();
-            $newComic->fill($data);
-            $newComic->save();
-            return redirect()->route('comics.index');
-            }
+{
+            $validatedData = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|unique:users|max:255',
+                'password' => 'required|confirmed|min:6',
+            ]);
+
+    // codice per salvare i dati nel database + metodo validate
+}
 
             public function edit($id)
             {
